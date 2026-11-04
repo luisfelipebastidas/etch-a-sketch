@@ -28,3 +28,22 @@ function createGrid(squaresPerSide) {
 }
 
 createGrid(16);
+
+gridButton.addEventListener("click", () => {
+  const userInput = prompt(
+    "How many squares per side? Enter a number from 1 to 100",
+  );
+  if (userInput === null) return;
+
+  const squaresPerSide = Number(userInput);
+
+  if (
+    !Number.isInteger(squaresPerSide) ||
+    squaresPerSide < 1 ||
+    squaresPerSide > 100
+  ) {
+    alert("Enter a whole number from 1 to 100.");
+    return;
+  }
+  createGrid(squaresPerSide);
+});
