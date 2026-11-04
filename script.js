@@ -3,7 +3,7 @@
 const container = document.querySelector(".container");
 const gridButton = document.querySelector(".new-grid-btn");
 
-// Replaces the grid using the requested number of squares per side.
+// Replaces the grid at the requested resolution while keeping the drawing area at 480 × 480 pixels.
 function createGrid(squaresPerSide) {
   const totalSquares = squaresPerSide * squaresPerSide;
   const squareSize = 480 / squaresPerSide;
@@ -17,6 +17,7 @@ function createGrid(squaresPerSide) {
     square.style.height = `${squareSize}px`;
     container.appendChild(square);
 
+    // Generate a fresh RGB color each time the pointer enters this square.
     square.addEventListener("mouseenter", () => {
       const red = Math.floor(Math.random() * 256);
       const green = Math.floor(Math.random() * 256);
@@ -29,6 +30,7 @@ function createGrid(squaresPerSide) {
 
 createGrid(16);
 
+// Validates the requested size before replacing the grid; canceled or invalid input preserves the drawing.
 gridButton.addEventListener("click", () => {
   const userInput = prompt(
     "How many squares per side? Enter a number from 1 to 100",
