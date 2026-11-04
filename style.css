@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-#container {
+.container {
   width: 480px;
   height: 480px;
   background-color: #eeeeee;
@@ -15,7 +15,5 @@ body {
 }
 
 .square {
-  width: 30px;
-  height: 30px;
   background-color: lightblue;
 }
