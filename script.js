@@ -17,13 +17,21 @@ function createGrid(squaresPerSide) {
     square.style.height = `${squareSize}px`;
     container.appendChild(square);
 
-    // Generate a fresh RGB color each time the pointer enters this square.
+    let interactions = 0;
+    square.style.opacity = 0;
+
+    // Increase opacity with each random color, reaching full opacity after ten entries.
     square.addEventListener("mouseenter", () => {
+      if (interactions >= 10) return;
+
+      interactions += 1;
+
       const red = Math.floor(Math.random() * 256);
       const green = Math.floor(Math.random() * 256);
       const blue = Math.floor(Math.random() * 256);
 
       square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      square.style.opacity = interactions / 10;
     });
   }
 }
