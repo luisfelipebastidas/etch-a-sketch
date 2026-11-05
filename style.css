@@ -1,19 +1,65 @@
+@font-face {
+  font-family: "Departure Mono";
+  src: url("fonts/DepartureMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background-color: #1a1c2c;
+  color: #f4f4f4;
+  font-family: "Departure Mono", monospace;
+}
+
+.new-grid-btn {
+  min-height: 60px;
+  padding: 16px 32px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #73eff7;
+  color: #1a1c2c;
+  font: inherit;
+  font-size: 22px;
+  box-shadow: 0 4px 0 #257179;
+  cursor: pointer;
+}
+
+.new-grid-btn:hover {
+  background-color: #ffcd75;
+}
+
+.new-grid-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #257179;
+}
+
+.new-grid-btn:focus-visible {
+  outline: 3px solid #ffcd75;
+  outline-offset: 4px;
 }
 
 .container {
   width: 480px;
   height: 480px;
-  background-color: #eeeeee;
+  flex-shrink: 0;
+  background-color: #f4f4f4;
   display: flex;
   flex-wrap: wrap;
 }
 
 .square {
-  background-color: lightblue;
+  background-color: #f4f4f4;
 }
